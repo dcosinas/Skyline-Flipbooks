@@ -140,6 +140,54 @@
 
   .cta:hover { background: var(--crimson-hover); }
 
+  /* ============================================================
+     SAVE VIDEO BUTTON — reusable pattern, see script comment
+     below for the full explanation and copy-paste instructions.
+     ============================================================ */
+  .save-actions {
+    padding: 18px 22px 4px;
+    text-align: center;
+  }
+
+  .save-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 22px;
+    background: var(--crimson);
+    color: var(--paper);
+    border: none;
+    text-decoration: none;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .save-btn:hover,
+  .save-btn:active { background: var(--crimson-hover); }
+
+  .save-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  /* Fallback (non-share-capable browsers) reads as a secondary
+     action — charcoal instead of crimson — since it's a plain
+     download, not the one-tap native share/save experience. */
+  .save-btn--fallback { background: var(--charcoal); }
+
+  .save-status {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    min-height: 1.1em;
+  }
+
   .watermark {
     text-align: center;
     padding: 20px 0 28px;
@@ -173,6 +221,18 @@
     </video>
   </div>
 
+  <!-- ============================================================
+       SAVE VIDEO — reusable block. To reuse on a future Remy video
+       landing page: copy this <div class="save-actions">...</div>
+       plus the <script> block near the end of <body>, then update
+       the three CONFIG constants at the top of the script.
+       ============================================================ -->
+  <div class="save-actions">
+    <button id="saveVideoBtn" class="save-btn" type="button" style="display:none;">Save Video</button>
+    <a id="saveVideoFallback" class="save-btn save-btn--fallback" style="display:none;">Download Video</a>
+    <p id="saveVideoStatus" class="save-status" aria-live="polite"></p>
+  </div>
+
   <div class="content">
     <p class="kicker">Today's Briefing, On Camera</p>
     <h2>Skyline Roofing's Vanguard — Daily Advantage</h2>
@@ -186,5 +246,132 @@
 
   <footer>&copy; Skyline Roofing — Residential and Commercial</footer>
 </div>
+
+<script>
+/* ============================================================
+   SKYLINE VIDEO LANDING PAGE — "SAVE VIDEO" PATTERN (REUSABLE)
+   ============================================================
+   WHY THIS EXISTS:
+   On iOS Safari, long-pressing an in-page <video> pointed at a
+   remote-hosted file does NOT reliably surface a native "Save
+   Video" option the way it does for on-device photos/videos. A
+   plain <a href download> link also fails to trigger the native
+   Photos save — it just opens or re-downloads the file. The
+   reliable one-tap fix on iOS Safari is the Web Share API's
+   file-sharing capability: fetch the video into a Blob, wrap it
+   in a File with the correct MIME type, and call
+   navigator.share({ files: [file] }). That triggers the NATIVE
+   iOS share sheet, which includes "Save Video" (straight to
+   Photos) as a direct, one-tap option.
+
+   HOW TO REUSE THIS ON A NEW VIDEO LANDING PAGE (Remy's videos):
+   1. Copy the CSS block tagged "SAVE VIDEO BUTTON" from <style>.
+   2. Copy the <div class="save-actions"> block from <body>
+      (placed directly under the .video-box / <video> element —
+      it is the primary action on the page, so it stays visually
+      first, above the descriptive copy).
+   3. Copy this entire <script> block.
+   4. Update the three CONFIG constants below: VIDEO_URL,
+      VIDEO_FILENAME, SHARE_TITLE. Nothing else needs to change —
+      feature detection, fallback, and error handling are generic.
+
+   BROWSER SUPPORT NOTES:
+   - iOS Safari 15+: navigator.share + navigator.canShare with
+     files is supported. This is Drue's target browser (iPad).
+   - Desktop Safari / most desktop browsers: file-sharing via Web
+     Share API is NOT supported -> automatically falls back to a
+     plain "Download Video" link (normal browser download instead
+     of the native share sheet, still functional).
+   - Android Chrome: navigator.share with files is supported in
+     most modern versions, so this same code path also gives
+     Android users a native share-to-save option for free.
+
+   IMPORTANT: the button is hidden by default in HTML
+   (style="display:none") and only revealed after feature
+   detection runs, so unsupported browsers never see a button
+   that would silently do nothing.
+   ============================================================ */
+(function () {
+  // ---- CONFIG (only these three need to change per page) ----
+  var VIDEO_URL = "https://flipbooks.skylineroofllc.com/social-test/vanguard_short_2026-07-19_bannered.mp4";
+  var VIDEO_FILENAME = "vanguard_short_2026-07-19.mp4";
+  var SHARE_TITLE = "Skyline's Vanguard — Daily Advantage Video";
+  // -------------------------------------------------------------
+
+  var shareBtn = document.getElementById("saveVideoBtn");
+  var fallbackLink = document.getElementById("saveVideoFallback");
+  var statusEl = document.getElementById("saveVideoStatus");
+
+  function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg || "";
+  }
+
+  // Feature-detect Web Share API file support WITHOUT fetching the
+  // real video first — build a throwaway File with the same MIME
+  // type just to ask canShare() if file-sharing is possible here.
+  function supportsFileShare() {
+    if (!(navigator.share && navigator.canShare)) return false;
+    try {
+      var probe = new File(["probe"], "probe.mp4", { type: "video/mp4" });
+      return navigator.canShare({ files: [probe] });
+    } catch (err) {
+      return false;
+    }
+  }
+
+  fallbackLink.href = VIDEO_URL;
+  fallbackLink.setAttribute("download", VIDEO_FILENAME);
+
+  if (supportsFileShare()) {
+    shareBtn.style.display = "inline-block";
+    fallbackLink.style.display = "none";
+
+    shareBtn.addEventListener("click", function () {
+      shareBtn.disabled = true;
+      setStatus("Preparing video…");
+
+      fetch(VIDEO_URL)
+        .then(function (res) {
+          if (!res.ok) throw new Error("Video fetch failed: " + res.status);
+          return res.blob();
+        })
+        .then(function (blob) {
+          var file = new File([blob], VIDEO_FILENAME, { type: "video/mp4" });
+
+          if (!navigator.canShare({ files: [file] })) {
+            throw new Error("canShare rejected the file at share time");
+          }
+
+          return navigator.share({
+            files: [file],
+            title: SHARE_TITLE
+          });
+        })
+        .then(function () {
+          setStatus("");
+        })
+        .catch(function (err) {
+          // AbortError = user cancelled the share sheet — not a real failure.
+          if (err && err.name === "AbortError") {
+            setStatus("");
+            return;
+          }
+          console.error("Save Video failed:", err);
+          setStatus("Couldn't open the share sheet — use the download link below instead.");
+          fallbackLink.style.display = "inline-block";
+        })
+        .finally(function () {
+          shareBtn.disabled = false;
+        });
+    });
+  } else {
+    // No file-sharing support on this browser (desktop Safari, older
+    // iOS, most desktop browsers) — show the plain download link
+    // instead of a button that would silently do nothing.
+    shareBtn.style.display = "none";
+    fallbackLink.style.display = "inline-block";
+  }
+})();
+</script>
 </body>
 </html>
