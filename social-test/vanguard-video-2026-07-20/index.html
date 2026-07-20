@@ -306,6 +306,25 @@
     if (statusEl) statusEl.textContent = msg || "";
   }
 
+  // DEFENSIVE FALLBACK: guaranteed to leave the download link visible
+  // and functional no matter what broke above it. Never lets both
+  // #saveVideoBtn and #saveVideoFallback stay hidden. The message is
+  // written into #saveVideoStatus so it's visible in a screenshot if
+  // this path is ever hit again.
+  function forceFallback(reason) {
+    try {
+      if (fallbackLink) {
+        fallbackLink.href = VIDEO_URL;
+        fallbackLink.setAttribute("download", VIDEO_FILENAME);
+        fallbackLink.style.display = "inline-block";
+      }
+      if (shareBtn) shareBtn.style.display = "none";
+    } catch (e) {
+      console.error("Save Video: forceFallback itself failed:", e);
+    }
+    setStatus(reason || "Save unavailable — using download link instead.");
+  }
+
   // Feature-detect Web Share API file support WITHOUT fetching the
   // real video first — build a throwaway File with the same MIME
   // type just to ask canShare() if file-sharing is possible here.
@@ -319,57 +338,74 @@
     }
   }
 
-  fallbackLink.href = VIDEO_URL;
-  fallbackLink.setAttribute("download", VIDEO_FILENAME);
+  // Everything below is feature detection + branch selection. None of
+  // it is guaranteed safe (missing DOM nodes, unexpected browser
+  // behavior, a future edit that renames an id, etc.), and there was
+  // previously no try/catch around it — any throw here left BOTH
+  // #saveVideoBtn and #saveVideoFallback stuck at their default
+  // display:none, which is the exact "nothing visible" bug this page
+  // hit. Wrapping it guarantees a safe, visible, functional fallback
+  // no matter what fails.
+  try {
+    if (!shareBtn || !fallbackLink) {
+      throw new Error("Save Video: expected DOM elements not found (#saveVideoBtn / #saveVideoFallback).");
+    }
 
-  if (supportsFileShare()) {
-    shareBtn.style.display = "inline-block";
-    fallbackLink.style.display = "none";
+    fallbackLink.href = VIDEO_URL;
+    fallbackLink.setAttribute("download", VIDEO_FILENAME);
 
-    shareBtn.addEventListener("click", function () {
-      shareBtn.disabled = true;
-      setStatus("Preparing video…");
+    if (supportsFileShare()) {
+      shareBtn.style.display = "inline-block";
+      fallbackLink.style.display = "none";
 
-      fetch(VIDEO_URL)
-        .then(function (res) {
-          if (!res.ok) throw new Error("Video fetch failed: " + res.status);
-          return res.blob();
-        })
-        .then(function (blob) {
-          var file = new File([blob], VIDEO_FILENAME, { type: "video/mp4" });
+      shareBtn.addEventListener("click", function () {
+        shareBtn.disabled = true;
+        setStatus("Preparing video…");
 
-          if (!navigator.canShare({ files: [file] })) {
-            throw new Error("canShare rejected the file at share time");
-          }
+        fetch(VIDEO_URL)
+          .then(function (res) {
+            if (!res.ok) throw new Error("Video fetch failed: " + res.status);
+            return res.blob();
+          })
+          .then(function (blob) {
+            var file = new File([blob], VIDEO_FILENAME, { type: "video/mp4" });
 
-          return navigator.share({
-            files: [file],
-            title: SHARE_TITLE
-          });
-        })
-        .then(function () {
-          setStatus("");
-        })
-        .catch(function (err) {
-          // AbortError = user cancelled the share sheet — not a real failure.
-          if (err && err.name === "AbortError") {
+            if (!navigator.canShare({ files: [file] })) {
+              throw new Error("canShare rejected the file at share time");
+            }
+
+            return navigator.share({
+              files: [file],
+              title: SHARE_TITLE
+            });
+          })
+          .then(function () {
             setStatus("");
-            return;
-          }
-          console.error("Save Video failed:", err);
-          setStatus("Couldn't open the share sheet — use the download link below instead.");
-          fallbackLink.style.display = "inline-block";
-        })
-        .finally(function () {
-          shareBtn.disabled = false;
-        });
-    });
-  } else {
-    // No file-sharing support on this browser (desktop Safari, older
-    // iOS, most desktop browsers) — show the plain download link
-    // instead of a button that would silently do nothing.
-    shareBtn.style.display = "none";
-    fallbackLink.style.display = "inline-block";
+          })
+          .catch(function (err) {
+            // AbortError = user cancelled the share sheet — not a real failure.
+            if (err && err.name === "AbortError") {
+              setStatus("");
+              return;
+            }
+            console.error("Save Video failed:", err);
+            setStatus("Couldn't open the share sheet — use the download link below instead.");
+            fallbackLink.style.display = "inline-block";
+          })
+          .finally(function () {
+            shareBtn.disabled = false;
+          });
+      });
+    } else {
+      // No file-sharing support on this browser (desktop Safari, older
+      // iOS, most desktop browsers) — show the plain download link
+      // instead of a button that would silently do nothing.
+      shareBtn.style.display = "none";
+      fallbackLink.style.display = "inline-block";
+    }
+  } catch (err) {
+    console.error("Save Video: setup failed, forcing download-link fallback:", err);
+    forceFallback("Save unavailable — using download link instead.");
   }
 })();
 </script>
