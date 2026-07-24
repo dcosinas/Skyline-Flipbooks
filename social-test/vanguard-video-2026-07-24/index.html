@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Skyline's Vanguard — Daily Advantage Video</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Skyline's Vanguard — Daily Advantage Video">
+<meta property="og:description" content="Tawny's daily video brief from Skyline Roofing — the Vanguard newspaper, delivered on camera.">
+<meta property="og:image" content="https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-07-24/thumb.jpg">
+<meta property="og:url" content="https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-07-24/">
+<meta property="og:type" content="video.other">
+<meta property="og:video" content="https://flipbooks.skylineroofllc.com/social-test/vanguard_short_2026-07-24_bannered.mp4">
+<meta property="og:video:type" content="video/mp4">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Skyline's Vanguard — Daily Advantage Video">
+<meta name="twitter:description" content="Tawny's daily video brief from Skyline Roofing — the Vanguard newspaper, delivered on camera.">
+<meta name="twitter:image" content="https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-07-24/thumb.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #841617;
+    --crimson-hover: #9e1b1c;
+    --black: #000000;
+    --charcoal: #323232;
+    --paper: #FFFFFF;
+    --paper-tint: #F5F5F5;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--black);
+    font-family: 'Lora', Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .masthead {
+    background: var(--crimson);
+    padding: 18px 20px;
+    text-align: center;
+  }
+
+  .masthead h1 {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--paper);
+    letter-spacing: 0.3px;
+  }
+
+  .masthead .sub {
+    margin-top: 4px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .video-box {
+    background: var(--black);
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: var(--black);
+  }
+
+  /* ============================================================
+     SCROLL-DOWN INDICATOR — added 2026-07-22, closes a known UX
+     discoverability gap (see script comment near the bottom of
+     <body> for the full backstory). Reusable the same way as the
+     Save Video block below: copy this one <div>, its CSS, and the
+     keyframes into any future video landing page unchanged.
+     ============================================================ */
+  .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    pointer-events: none;
+    animation: scrollCueBob 1.6s ease-in-out infinite;
+  }
+
+  .scroll-cue svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));
+  }
+
+  .scroll-cue span {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.9);
+    font-family: 'Lora', Georgia, serif;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
+  @keyframes scrollCueBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.85; }
+    50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
+  }
+
+  .content {
+    padding: 24px 22px 40px;
+    flex: 1;
+  }
+
+  .content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: var(--black);
+    font-size: 1.4rem;
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+
+  .content .kicker {
+    color: var(--crimson);
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin: 0 0 14px;
+  }
+
+  .content p {
+    color: var(--charcoal);
+    line-height: 1.65;
+    font-size: 1rem;
+    margin: 0 0 16px;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 12px 22px;
+    background: var(--crimson);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 2px;
+    transition: background 0.15s ease;
+  }
+
+  .cta:hover { background: var(--crimson-hover); }
+
+  /* ============================================================
+     SAVE VIDEO BUTTON — reusable pattern, see script comment
+     below for the full explanation and copy-paste instructions.
+     ============================================================ */
+  .save-actions {
+    padding: 18px 22px 4px;
+    text-align: center;
+  }
+
+  .save-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 22px;
+    background: var(--crimson);
+    color: var(--paper);
+    border: none;
+    text-decoration: none;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+
+  .save-btn:hover,
+  .save-btn:active { background: var(--crimson-hover); }
+
+  .save-btn:disabled {
+    opacity: 0.65;
+    cursor: default;
+  }
+
+  /* Fallback (non-share-capable browsers) reads as a secondary
+     action — charcoal instead of crimson — since it's a plain
+     download, not the one-tap native share/save experience. */
+  .save-btn--fallback { background: var(--charcoal); }
+
+  .save-status {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    min-height: 1.1em;
+  }
+
+  .watermark {
+    text-align: center;
+    padding: 20px 0 28px;
+  }
+
+  .watermark img {
+    width: 140px;
+    opacity: 0.28;
+  }
+
+  footer {
+    text-align: center;
+    padding: 0 20px 28px;
+    color: #999;
+    font-size: 0.75rem;
+    font-family: 'Lora', Georgia, serif;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <h1>Skyline's Vanguard</h1>
+    <div class="sub">Daily Advantage Video</div>
+  </div>
+
+  <div class="video-box">
+    <video controls playsinline preload="metadata" poster="https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-07-24/thumb.jpg">
+      <source src="https://flipbooks.skylineroofllc.com/social-test/vanguard_short_2026-07-24_bannered.mp4" type="video/mp4">
+      Your browser does not support the video tag. <a href="https://flipbooks.skylineroofllc.com/social-test/vanguard_short_2026-07-24_bannered.mp4">Watch the video directly.</a>
+    </video>
+    <div class="scroll-cue" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 9l6 6 6-6" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Scroll to Save</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SAVE VIDEO — reusable block. To reuse on a future Remy video
+       landing page: copy this <div class="save-actions">...</div>
+       plus the <script> block near the end of <body>, then update
+       the three CONFIG constants at the top of the script.
+       ============================================================ -->
+  <div class="save-actions">
+    <button id="saveVideoBtn" class="save-btn" type="button" style="display:none;">Save Video</button>
+    <a id="saveVideoFallback" class="save-btn save-btn--fallback" style="display:none;">Download Video</a>
+    <p id="saveVideoStatus" class="save-status" aria-live="polite"></p>
+  </div>
+
+  <div class="content">
+    <p class="kicker">Today's Briefing, On Camera</p>
+    <h2>Skyline Roofing's Vanguard — Daily Advantage</h2>
+    <p>Every day, Skyline Roofing turns industry news into a real advantage for the people we work with. This short video brief pulls the highlights from today's Vanguard newspaper — straight from the team, straight to the point.</p>
+    <a class="cta" href="https://flipbooks.skylineroofllc.com/newspaper/realtors/">Read Today's Full Edition</a>
+  </div>
+
+  <div class="watermark">
+    <img src="https://flipbooks.skylineroofllc.com/assets/skyline-logo.jpg" alt="Skyline Roofing">
+  </div>
+
+  <footer>&copy; Skyline Roofing — Residential and Commercial</footer>
+</div>
+
+<script>
+/* ============================================================
+   SKYLINE VIDEO LANDING PAGE — "SAVE VIDEO" PATTERN (REUSABLE)
+   ============================================================
+   WHY THIS EXISTS:
+   On iOS Safari, long-pressing an in-page <video> pointed at a
+   remote-hosted file does NOT reliably surface a native "Save
+   Video" option the way it does for on-device photos/videos. A
+   plain <a href download> link also fails to trigger the native
+   Photos save — it just opens or re-downloads the file. The
+   reliable one-tap fix on iOS Safari is the Web Share API's
+   file-sharing capability: fetch the video into a Blob, wrap it
+   in a File with the correct MIME type, and call
+   navigator.share({ files: [file] }). That triggers the NATIVE
+   iOS share sheet, which includes "Save Video" (straight to
+   Photos) as a direct, one-tap option.
+
+   HOW TO REUSE THIS ON A NEW VIDEO LANDING PAGE (Remy's videos):
+   1. Copy the CSS block tagged "SAVE VIDEO BUTTON" from <style>.
+   2. Copy the <div class="save-actions"> block from <body>
+      (placed directly under the .video-box / <video> element —
+      it is the primary action on the page, so it stays visually
+      first, above the descriptive copy).
+   3. Copy this entire <script> block.
+   4. Update the three CONFIG constants below: VIDEO_URL,
+      VIDEO_FILENAME, SHARE_TITLE. Nothing else needs to change —
+      feature detection, fallback, and error handling are generic.
+
+   BROWSER SUPPORT NOTES:
+   - iOS Safari 15+: navigator.share + navigator.canShare with
+     files is supported. This is Drue's target browser (iPad).
+   - Desktop Safari / most desktop browsers: file-sharing via Web
+     Share API is NOT supported -> automatically falls back to a
+     plain "Download Video" link (normal browser download instead
+     of the native share sheet, still functional).
+   - Android Chrome: navigator.share with files is supported in
+     most modern versions, so this same code path also gives
+     Android users a native share-to-save option for free.
+
+   IMPORTANT: the button is hidden by default in HTML
+   (style="display:none") and only revealed after feature
+   detection runs, so unsupported browsers never see a button
+   that would silently do nothing.
+   ============================================================ */
+(function () {
+  // ---- CONFIG (only these three need to change per page) ----
+  var VIDEO_URL = "https://flipbooks.skylineroofllc.com/social-test/vanguard_short_2026-07-24_bannered.mp4";
+  var VIDEO_FILENAME = "vanguard_short_2026-07-24.mp4";
+  var SHARE_TITLE = "Skyline's Vanguard — Daily Advantage Video";
+  // -------------------------------------------------------------
+
+  var shareBtn = document.getElementById("saveVideoBtn");
+  var fallbackLink = document.getElementById("saveVideoFallback");
+  var statusEl = document.getElementById("saveVideoStatus");
+
+  function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg || "";
+  }
+
+  // DEFENSIVE FALLBACK: guaranteed to leave the download link visible
+  // and functional no matter what broke above it. Never lets both
+  // #saveVideoBtn and #saveVideoFallback stay hidden. The message is
+  // written into #saveVideoStatus so it's visible in a screenshot if
+  // this path is ever hit again.
+  function forceFallback(reason) {
+    try {
+      if (fallbackLink) {
+        fallbackLink.href = VIDEO_URL;
+        fallbackLink.setAttribute("download", VIDEO_FILENAME);
+        fallbackLink.style.display = "inline-block";
+      }
+      if (shareBtn) shareBtn.style.display = "none";
+    } catch (e) {
+      console.error("Save Video: forceFallback itself failed:", e);
+    }
+    setStatus(reason || "Save unavailable — using download link instead.");
+  }
+
+  // Feature-detect Web Share API file support WITHOUT fetching the
+  // real video first — build a throwaway File with the same MIME
+  // type just to ask canShare() if file-sharing is possible here.
+  function supportsFileShare() {
+    if (!(navigator.share && navigator.canShare)) return false;
+    try {
+      var probe = new File(["probe"], "probe.mp4", { type: "video/mp4" });
+      return navigator.canShare({ files: [probe] });
+    } catch (err) {
+      return false;
+    }
+  }
+
+  // Everything below is feature detection + branch selection. None of
+  // it is guaranteed safe (missing DOM nodes, unexpected browser
+  // behavior, a future edit that renames an id, etc.), and there was
+  // previously no try/catch around it — any throw here left BOTH
+  // #saveVideoBtn and #saveVideoFallback stuck at their default
+  // display:none, which is the exact "nothing visible" bug this page
+  // hit. Wrapping it guarantees a safe, visible, functional fallback
+  // no matter what fails.
+  try {
+    if (!shareBtn || !fallbackLink) {
+      throw new Error("Save Video: expected DOM elements not found (#saveVideoBtn / #saveVideoFallback).");
+    }
+
+    fallbackLink.href = VIDEO_URL;
+    fallbackLink.setAttribute("download", VIDEO_FILENAME);
+
+    if (supportsFileShare()) {
+      shareBtn.style.display = "inline-block";
+      fallbackLink.style.display = "none";
+
+      shareBtn.addEventListener("click", function () {
+        shareBtn.disabled = true;
+        setStatus("Preparing video…");
+
+        fetch(VIDEO_URL)
+          .then(function (res) {
+            if (!res.ok) throw new Error("Video fetch failed: " + res.status);
+            return res.blob();
+          })
+          .then(function (blob) {
+            var file = new File([blob], VIDEO_FILENAME, { type: "video/mp4" });
+
+            if (!navigator.canShare({ files: [file] })) {
+              throw new Error("canShare rejected the file at share time");
+            }
+
+            return navigator.share({
+              files: [file],
+              title: SHARE_TITLE
+            });
+          })
+          .then(function () {
+            setStatus("");
+          })
+          .catch(function (err) {
+            // AbortError = user cancelled the share sheet — not a real failure.
+            if (err && err.name === "AbortError") {
+              setStatus("");
+              return;
+            }
+            console.error("Save Video failed:", err);
+            setStatus("Couldn't open the share sheet — use the download link below instead.");
+            fallbackLink.style.display = "inline-block";
+          })
+          .finally(function () {
+            shareBtn.disabled = false;
+          });
+      });
+    } else {
+      // No file-sharing support on this browser (desktop Safari, older
+      // iOS, most desktop browsers) — show the plain download link
+      // instead of a button that would silently do nothing.
+      shareBtn.style.display = "none";
+      fallbackLink.style.display = "inline-block";
+    }
+  } catch (err) {
+    console.error("Save Video: setup failed, forcing download-link fallback:", err);
+    forceFallback("Save unavailable — using download link instead.");
+  }
+})();
+</script>
+</body>
+</html>
+
+
