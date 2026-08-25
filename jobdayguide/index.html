@@ -17,6 +17,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     user-select: none;
   }
@@ -25,18 +26,34 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .book {
-    width: min(420px, 96vw);
-    height: min(560px, 96vh);
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     position: relative;
     overflow: hidden;
-    border-radius: 6px;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* On wide viewports (desktop/tablet), keep the phone-shaped floating card
+     so the guide does not stretch into an unreadable full-bleed rectangle.
+     Mobile — the primary delivery channel, texted directly to a homeowner's
+     phone — gets true edge-to-edge full screen instead of a letterboxed card. */
+  @media (min-width: 700px) {
+    .book {
+      width: min(420px, 96vw);
+      height: min(560px, 96vh);
+      height: min(560px, 96dvh);
+      border-radius: 6px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+    }
   }
 
   /* Slides container */
