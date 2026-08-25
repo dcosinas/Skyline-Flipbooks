@@ -316,9 +316,65 @@
     font-weight: 500;
     text-align: right;
   }
+
+  /* ---- WEATHER WIDGET (Job Day forecast, via National Weather Service API) ---- */
+  .weather-widget {
+    margin-top: 14px;
+    width: 100%;
+    border-top: 2px solid #841617;
+    border-bottom: 2px solid #841617;
+    padding: 10px 2px;
+    text-align: center;
+  }
+
+  .weather-widget-label {
+    color: #CCCCCC;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    margin-bottom: 6px;
+  }
+
+  .weather-widget-body {
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .weather-headline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .weather-detail {
+    display: block;
+    color: #CCCCCC;
+    font-size: 0.74rem;
+    margin-top: 3px;
+  }
+
+  .weather-loading,
+  .weather-fallback {
+    color: #999999;
+    font-size: 0.74rem;
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
+<script>
+  window.SKYLINE_JOB = {
+    lat: 35.197942,
+    lon: -97.420847,
+    productionDate: "2026-08-26"
+  };
+</script>
 <div class="flipbook-wrap">
   <div class="book">
     <div class="slides" id="slides">
@@ -338,6 +394,10 @@
           <div class="jobinfo-row"><span class="jobinfo-label">Job Start</span><span class="jobinfo-value">Wednesday, August 26, 2026</span></div>
           <div class="jobinfo-row"><span class="jobinfo-label">Crew Lead</span><span class="jobinfo-value">Jacob</span></div>
           <div class="jobinfo-row"><span class="jobinfo-label">Duration</span><span class="jobinfo-value">1 day</span></div>
+        </div>
+        <div class="weather-widget" id="weatherWidget">
+          <div class="weather-widget-label">Job Day Forecast</div>
+          <div class="weather-widget-body" id="weatherBody"><span class="weather-loading">Checking forecast&hellip;</span></div>
         </div>
         <p class="cover-subtitle">Standard Operating Procedures<br>&amp; Safety Guidelines</p>
       </div>
@@ -476,6 +536,71 @@
   });
 
   goTo(0);
+})();
+</script>
+<script>
+(function(){
+  var jobData = window.SKYLINE_JOB || {};
+  var bodyEl = document.getElementById('weatherBody');
+  if (!bodyEl) return;
+
+  function showFallback(msg){
+    bodyEl.innerHTML = '<span class="weather-fallback">' + msg + '</span>';
+  }
+
+  if (!jobData.lat || !jobData.lon || !jobData.productionDate) {
+    showFallback('Forecast will appear here once job details are set.');
+    return;
+  }
+
+  var lat = jobData.lat, lon = jobData.lon, prodDate = jobData.productionDate;
+  var pointsUrl = 'https://api.weather.gov/points/' + lat + ',' + lon;
+
+  fetch(pointsUrl, { headers: { 'Accept': 'application/geo+json' } })
+    .then(function(r){ if(!r.ok) throw new Error('points ' + r.status); return r.json(); })
+    .then(function(points){
+      var forecastUrl = points && points.properties && points.properties.forecast;
+      if (!forecastUrl) throw new Error('no forecast url in points response');
+      return fetch(forecastUrl, { headers: { 'Accept': 'application/geo+json' } });
+    })
+    .then(function(r){ if(!r.ok) throw new Error('forecast ' + r.status); return r.json(); })
+    .then(function(data){
+      var periods = (data.properties && data.properties.periods) || [];
+      var dayPeriod = null, nightPeriod = null;
+      for (var i = 0; i < periods.length; i++){
+        var p = periods[i];
+        var pDate = (p.startTime || '').slice(0, 10);
+        if (pDate === prodDate && p.isDaytime) {
+          dayPeriod = p;
+          nightPeriod = periods[i + 1] || null;
+          break;
+        }
+      }
+      if (!dayPeriod) {
+        for (var j = 0; j < periods.length; j++){
+          if ((periods[j].startTime || '').slice(0, 10) === prodDate) { dayPeriod = periods[j]; break; }
+        }
+      }
+      if (!dayPeriod) {
+        showFallback('Forecast not yet posted for this date &mdash; check back closer to job day.');
+        return;
+      }
+
+      var high = dayPeriod.temperature;
+      var low = (nightPeriod && nightPeriod.temperature != null) ? nightPeriod.temperature : null;
+      var pop = (dayPeriod.probabilityOfPrecipitation && dayPeriod.probabilityOfPrecipitation.value != null)
+        ? dayPeriod.probabilityOfPrecipitation.value : null;
+      var summary = dayPeriod.shortForecast || 'Forecast unavailable';
+
+      var html = '<span class="weather-headline">' + summary + '</span>';
+      html += '<span class="weather-detail">High ' + high + '&deg;' + (low != null ? ' / Low ' + low + '&deg;' : '');
+      if (pop != null) { html += ' &middot; ' + pop + '% chance of rain'; }
+      html += '</span>';
+      bodyEl.innerHTML = html;
+    })
+    .catch(function(){
+      showFallback('Live forecast unavailable &mdash; check your local weather before job day.');
+    });
 })();
 </script>
 </body>
