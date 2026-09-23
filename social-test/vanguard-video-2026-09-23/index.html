@@ -129,6 +129,47 @@
     50%      { transform: translateX(-50%) translateY(6px); opacity: 1; }
   }
 
+  .podcast-box {
+    background: var(--paper-tint);
+    border-top: 3px solid var(--crimson);
+    padding: 18px 22px 20px;
+  }
+
+  .podcast-kicker {
+    margin: 0 0 4px;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--crimson);
+  }
+
+  .podcast-title {
+    margin: 0 0 12px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.35;
+  }
+
+  audio.podcast-player {
+    width: 100%;
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .podcast-download {
+    display: inline-block;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--crimson);
+    text-decoration: none;
+  }
+
+  .podcast-download:hover { color: var(--crimson-hover); text-decoration: underline; }
+
   .content {
     padding: 24px 22px 40px;
     flex: 1;
@@ -253,6 +294,16 @@
       </svg>
       <span>Scroll to Save</span>
     </div>
+  </div>
+
+  <div class="podcast-box">
+    <p class="podcast-kicker">Want to listen? <strong>20-minute commute podcast</strong></p>
+    <p class="podcast-title">Skyline Vanguard — The Commute Briefing, with Tawny &amp; Paul</p>
+    <audio class="podcast-player" controls preload="none">
+      <source src="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-23.mp3" type="audio/mpeg">
+      Your browser does not support the audio element. <a href="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-23.mp3">Download the MP3</a>.
+    </audio>
+    <a class="podcast-download" href="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-23.mp3" download="vanguard-podcast-2026-09-23.mp3">Download MP3</a>
   </div>
 
   <div class="save-actions">
