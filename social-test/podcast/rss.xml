@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+<channel>
+  <title>Skyline Vanguard — The Commute Briefing</title>
+  <link>https://flipbooks.skylineroofllc.com/</link>
+  <atom:link href="https://flipbooks.skylineroofllc.com/social-test/podcast/rss.xml" rel="self" type="application/rss+xml"/>
+  <language>en-us</language>
+  <description>A daily ~20-minute editorial briefing for real-estate and insurance professionals, hosted by Tawny &amp; Paul — mortgage rates, insurance regulation, real-estate transactions, construction, and business opportunity, pulled from Skyline Roofing's Vanguard newspaper.</description>
+  <itunes:author>Skyline Roofing</itunes:author>
+  <itunes:owner>
+    <itunes:name>Skyline Roofing</itunes:name>
+    <itunes:email>theshingleslinger@gmail.com</itunes:email>
+  </itunes:owner>
+  <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+  <image>
+    <url>https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg</url>
+    <title>Skyline Vanguard — The Commute Briefing</title>
+    <link>https://flipbooks.skylineroofllc.com/</link>
+  </image>
+  <itunes:category text="Business">
+    <itunes:category text="Management"/>
+  </itunes:category>
+  <itunes:explicit>false</itunes:explicit>
+  <itunes:type>episodic</itunes:type>
+  <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
+  <podcast:locked>no</podcast:locked>
+  <generator>vanguard_podcast_publish.py</generator>
+  <lastBuildDate>Wed, 23 Sep 2026 12:15:44 -0500</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Sep 23, 2026</title>
+    <description>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. We've got five stories on the desk. Lumber prices just hit a nine-month low, right as a new round of tariffs lands on top of them. North Dakota property insurance rates are projected to climb twenty-six percent over the next three years.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-23/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-23/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-23.mp3" length="6630285" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-23.mp3</guid>
+    <pubDate>Wed, 23 Sep 2026 21:00:00 -0500</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Sep 23, 2026</itunes:title>
+    <itunes:summary>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. We've got five stories on the desk. Lumber prices just hit a nine-month low, right as a new round of tariffs lands on top of them. North Dakota property insurance rates are projected to climb twenty-six percent over the next three years.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-23/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:18:25</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+</channel>
+</rss>
