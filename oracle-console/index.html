@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle — live traffic</title>
+<meta name="description" content="Live request traffic for Skyline's Oracle data API.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f6f5;
+    --surface:#ffffff;
+    --ink:#141414;
+    --muted:#323232;
+    --faint:#8a877e;
+    --line:#e3e0d8;
+    --crimson:#841617;
+    --crimson-wash:rgba(132,22,23,.07);
+    --brown:#6b3a2a;
+    --green:#2f6b3a;
+    --neutral-dot:#aba89e;
+    --focus:#841617;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a, button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+
+  .wrap{max-width:900px; margin:0 auto; padding:0 20px 80px;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{padding:34px 0 0;}
+  .masthead-top{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .wordmark{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    font-size:34px;
+    letter-spacing:.2px;
+    margin:0;
+    color:var(--ink);
+  }
+  .masthead-status{display:flex; align-items:center; gap:14px; font-size:13px; color:var(--muted);}
+  .live-dot{
+    width:8px; height:8px; border-radius:50%;
+    display:inline-block; background:var(--neutral-dot);
+    position:relative; top:-1px;
+  }
+  .live-dot.on{background:var(--crimson); animation:pulse 2s ease-in-out infinite;}
+  .live-dot.warn{background:var(--brown); animation:pulse 1s ease-in-out infinite;}
+  .live-dot.paused{background:var(--neutral-dot);}
+  @keyframes pulse{
+    0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(132,22,23,.35);}
+    50%{opacity:.55; box-shadow:0 0 0 4px rgba(132,22,23,0);}
+  }
+  .live-label{display:inline-flex; align-items:center; gap:7px;}
+  .link-btn{
+    background:none; border:none; padding:0; margin:0;
+    color:var(--muted); font-size:13px; text-decoration:underline;
+    text-decoration-color:var(--line); text-underline-offset:3px;
+    cursor:pointer;
+  }
+  .link-btn:hover{color:var(--crimson); text-decoration-color:var(--crimson);}
+  .tagline{
+    margin:6px 0 20px;
+    color:var(--muted);
+    font-size:14.5px;
+  }
+  .rule{height:3px; background:var(--crimson); border:none; margin:0 0 26px;}
+  .rule-hair{height:1px; background:var(--line); border:none; margin:0;}
+
+  /* ---------- Stats ---------- */
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    margin-bottom:28px;
+  }
+  .stat{padding:2px 22px; border-left:1px solid var(--line);}
+  .stat:first-child{border-left:none; padding-left:0;}
+  .stat-num{
+    font-family:'Oswald',sans-serif; font-weight:700;
+    font-size:clamp(28px,5vw,42px);
+    font-variant-numeric:tabular-nums;
+    line-height:1;
+    color:var(--ink);
+  }
+  .stat-label{
+    margin-top:6px; font-size:13px; color:var(--faint);
+  }
+
+  /* ---------- Feed ---------- */
+  .feed-head{
+    display:grid;
+    grid-template-columns:76px 1fr 128px 118px 128px;
+    gap:14px;
+    padding:0 0 10px;
+    font-size:12.5px;
+    color:var(--faint);
+    border-bottom:1px solid var(--line);
+  }
+  .feed-list{min-height:40px;}
+  .row{
+    display:grid;
+    grid-template-columns:76px 1fr 128px 118px 128px;
+    gap:14px;
+    align-items:center;
+    padding:11px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .row-new{animation:rowIn 1.8s ease-out;}
+  @keyframes rowIn{
+    0%{background:var(--crimson-wash);}
+    100%{background:transparent;}
+  }
+  .c-time{color:var(--faint); font-variant-numeric:tabular-nums; font-size:13px;}
+  .c-activity{display:flex; flex-direction:column; gap:1px; min-width:0;}
+  .c-activity strong{font-weight:600; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .c-activity small{color:var(--faint); font-size:12.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .c-status, .c-data, .c-source{display:flex; align-items:center; gap:7px; font-size:13px; color:var(--muted); min-width:0;}
+  .c-source{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .dot{width:7px; height:7px; border-radius:50%; flex:none; display:inline-block;}
+  .st-good{background:var(--green);}
+  .st-warn{background:var(--brown);}
+  .st-crit{background:var(--crimson);}
+  .st-neutral{background:var(--neutral-dot);}
+  .c-data.has-data{color:var(--ink); font-weight:500;}
+  .feed-empty{color:var(--faint); padding:22px 0; font-size:14px;}
+  .conn-msg{
+    color:var(--brown); font-size:13px; padding:10px 0 0;
+  }
+
+  /* ---------- Key gate ---------- */
+  .gate{
+    position:fixed; inset:0; background:var(--bg);
+    display:none; align-items:center; justify-content:center;
+    padding:24px; z-index:50;
+  }
+  .gate.open{display:flex;}
+  .gate-panel{width:100%; max-width:360px; text-align:left;}
+  .gate-word{
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:32px;
+    margin:0 0 4px; color:var(--ink);
+  }
+  .gate-rule{height:3px; width:44px; background:var(--crimson); border:none; margin:0 0 20px;}
+  .gate-sub{margin:0 0 22px; color:var(--muted); font-size:14.5px;}
+  .gate-form{display:flex; flex-direction:column; gap:12px;}
+  .gate-form input{
+    font-family:'Inter',sans-serif; font-size:15px;
+    padding:12px 14px; border:1px solid var(--line); border-radius:2px;
+    background:var(--surface); color:var(--ink);
+  }
+  .gate-form input:focus-visible{border-color:var(--crimson);}
+  .gate-form button{
+    font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
+    padding:12px 14px; border:none; border-radius:2px;
+    background:var(--crimson); color:#fff; cursor:pointer;
+    letter-spacing:.2px;
+  }
+  .gate-form button:hover{background:#6d1213;}
+  .gate-error{
+    margin:14px 0 0; color:var(--crimson); font-size:13.5px;
+  }
+  .gate-note{margin:26px 0 0; color:var(--faint); font-size:12.5px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:640px){
+    .wordmark{font-size:28px;}
+    .stats{grid-template-columns:1fr; row-gap:16px;}
+    .stat{border-left:none; border-top:1px solid var(--line); padding:14px 0 0;}
+    .stat:first-child{border-top:none; padding-top:0;}
+    .feed-head{display:none;}
+    .row{
+      grid-template-columns:1fr auto;
+      grid-template-areas:"activity status" "time data" "source source";
+      row-gap:4px;
+    }
+    .c-activity{grid-area:activity;}
+    .c-status{grid-area:status; justify-self:end;}
+    .c-time{grid-area:time;}
+    .c-data{grid-area:data; justify-self:end;}
+    .c-source{grid-area:source; color:var(--faint); font-size:12.5px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .live-dot.on, .live-dot.warn{animation:none;}
+    .row-new{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="masthead-top">
+      <h1 class="wordmark">Oracle</h1>
+      <div class="masthead-status">
+        <span class="live-label"><span id="liveDot" class="live-dot paused"></span><span id="liveText">Connecting…</span></span>
+        <button id="changeKeyBtn" class="link-btn" type="button">Change key</button>
+      </div>
+    </div>
+    <p class="tagline">Skyline's data API for AI agents — live request traffic</p>
+  </header>
+  <hr class="rule">
+
+  <section class="stats" id="stats" aria-label="Session summary">
+    <div class="stat">
+      <div class="stat-num" id="statSeen">0</div>
+      <div class="stat-label">requests seen this session</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="statReal">0</div>
+      <div class="stat-label">hit real data</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="statHandshake">0</div>
+      <div class="stat-label">handshake pings</div>
+    </div>
+  </section>
+
+  <hr class="rule-hair">
+
+  <section class="feed" aria-label="Live request feed">
+    <div class="feed-head">
+      <span>Time</span><span>Activity</span><span>Status</span><span>Source</span><span>Data</span>
+    </div>
+    <div id="feedList" class="feed-list" role="log" aria-live="polite"></div>
+    <p id="feedEmpty" class="feed-empty">Waiting for traffic…</p>
+    <p id="connMsg" class="conn-msg" hidden>Reconnecting…</p>
+  </section>
+</div>
+
+<div class="gate" id="gate">
+  <div class="gate-panel">
+    <h2 class="gate-word">Oracle</h2>
+    <hr class="gate-rule">
+    <p class="gate-sub">Enter your admin key to view live traffic.</p>
+    <form class="gate-form" id="gateForm">
+      <input id="keyInput" type="password" autocomplete="off" spellcheck="false" placeholder="Admin key" aria-label="Admin key">
+      <button type="submit">Connect</button>
+    </form>
+    <p class="gate-error" id="gateError" hidden></p>
+    <p class="gate-note">Stored only in this browser. Never sent anywhere but Oracle.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var API = "https://oracle-api.skyline-roofing.workers.dev/admin/recent-activity";
+  var LIMIT = 50;
+  var POLL_MS = 12000;
+  var KEY_STORAGE = "oracle_admin_key";
+  var MAX_DOM_ROWS = 150;
+
+  var els = {
+    gate: document.getElementById('gate'),
+    gateForm: document.getElementById('gateForm'),
+    keyInput: document.getElementById('keyInput'),
+    gateError: document.getElementById('gateError'),
+    changeKeyBtn: document.getElementById('changeKeyBtn'),
+    liveDot: document.getElementById('liveDot'),
+    liveText: document.getElementById('liveText'),
+    feedList: document.getElementById('feedList'),
+    feedEmpty: document.getElementById('feedEmpty'),
+    connMsg: document.getElementById('connMsg'),
+    statSeen: document.getElementById('statSeen'),
+    statReal: document.getElementById('statReal'),
+    statHandshake: document.getElementById('statHandshake')
+  };
+
+  var pollTimer = null;
+  var inFlight = false;
+  var seenKeys = Object.create(null);
+  var seenCount = 0, countReal = 0, countHandshake = 0;
+
+  function getKey(){ try { return localStorage.getItem(KEY_STORAGE); } catch(e){ return null; } }
+  function setKey(v){ try { localStorage.setItem(KEY_STORAGE, v); } catch(e){} }
+  function clearKey(){ try { localStorage.removeItem(KEY_STORAGE); } catch(e){} }
+
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function showGate(message){
+    stopPolling();
+    els.gateError.hidden = !message;
+    if(message) els.gateError.textContent = message;
+    els.gate.classList.add('open');
+    els.keyInput.value = '';
+    setLive('paused', 'Paused');
+    setTimeout(function(){ els.keyInput.focus(); }, 50);
+  }
+  function hideGate(){
+    els.gate.classList.remove('open');
+  }
+
+  els.gateForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v = els.keyInput.value.trim();
+    if(!v) return;
+    setKey(v);
+    hideGate();
+    startPolling(true);
+  });
+
+  els.changeKeyBtn.addEventListener('click', function(){
+    clearKey();
+    showGate();
+  });
+
+  function rowKey(row){
+    return (row.timestamp_utc||'') + '|' + (row.ip_hash||'') + '|' + (row.operation||'') + '|' + (row.path||'') + '|' + (row.mcp_session_id||'');
+  }
+
+  function relTime(iso){
+    var then = new Date(iso).getTime();
+    if(isNaN(then)) return '';
+    var diff = Math.max(0, Date.now() - then);
+    var s = Math.floor(diff/1000);
+    if(s < 5) return 'just now';
+    if(s < 60) return s + 's ago';
+    var m = Math.floor(s/60);
+    if(m < 60) return m + 'm ago';
+    var h = Math.floor(m/60);
+    if(h < 24) return h + 'h ago';
+    var d = Math.floor(h/24);
+    return d + 'd ago';
+  }
+
+  function statusInfo(code){
+    code = Number(code);
+    if(code === 429) return {cls:'st-warn', label: code + ' rate limited'};
+    if(code >= 500) return {cls:'st-crit', label: code + ' error'};
+    if(code >= 400) return {cls:'st-crit', label: code + ' error'};
+    if(code === 202) return {cls:'st-good', label: code + ' accepted'};
+    if(code >= 200 && code < 300) return {cls:'st-good', label: code + ' ok'};
+    return {cls:'st-neutral', label: String(code)};
+  }
+
+  function cleanSource(row){
+    var g = (row.source_guess || '').trim();
+    if(g && g.toLowerCase() !== 'unknown') return g;
+    var ua = (row.user_agent || '').trim();
+    if(!ua) return 'unknown';
+    if(/^curl\//i.test(ua)) return 'curl';
+    if(/^python-requests/i.test(ua)) return 'python';
+    if(/^node/i.test(ua)) return 'node script';
+    if(/mozilla/i.test(ua) && /(chrome|safari|firefox|edg)/i.test(ua)) return 'browser';
+    var m = ua.match(/^[A-Za-z][A-Za-z0-9_.-]*/);
+    if(m) return m[0].slice(0, 24);
+    return ua.slice(0, 24);
+  }
+
+  function activityLabel(row){
+    return row.operation || row.mcp_method || row.method || String(row.path || '—');
+  }
+
+  function buildRow(row){
+    var key = rowKey(row);
+    var div = document.createElement('div');
+    div.className = 'row row-new';
+    div.dataset.key = key;
+    div.dataset.iso = row.timestamp_utc || '';
+
+    var st = statusInfo(row.response_status);
+    var hasData = Array.isArray(row.sheets_reads) && row.sheets_reads.length > 0;
+    var dataLabel = hasData ? 'hit real data' : 'handshake';
+    var dataTitle = hasData ? row.sheets_reads.map(function(r){
+      return r.collection + ' · ' + r.duration_ms + 'ms' + (r.cache_hit ? ' (cached)' : '');
+    }).join(', ') : 'No Sheets read on this request';
+
+    div.innerHTML =
+      '<span class="c-time" title="' + escapeHtml(row.timestamp_utc || '') + '">' + relTime(row.timestamp_utc) + '</span>' +
+      '<span class="c-activity"><strong>' + escapeHtml(activityLabel(row)) + '</strong><small>' + escapeHtml(row.path || '') + '</small></span>' +
+      '<span class="c-status"><i class="dot ' + st.cls + '"></i>' + escapeHtml(st.label) + '</span>' +
+      '<span class="c-source" title="' + escapeHtml(row.user_agent || '') + '">' + escapeHtml(cleanSource(row)) + '</span>' +
+      '<span class="c-data' + (hasData ? ' has-data' : '') + '" title="' + escapeHtml(dataTitle) + '"><i class="dot ' + (hasData ? 'st-good' : 'st-neutral') + '"></i>' + dataLabel + '</span>';
+    return div;
+  }
+
+  function render(rowsNewestFirst){
+    var rows = rowsNewestFirst.slice().reverse(); // oldest-of-batch first, so repeated insertBefore(first) ends newest-on-top
+    var inserted = false;
+    for(var i = 0; i < rows.length; i++){
+      var row = rows[i];
+      var key = rowKey(row);
+      if(seenKeys[key]) continue;
+      seenKeys[key] = true;
+      seenCount++;
+      var hasData = Array.isArray(row.sheets_reads) && row.sheets_reads.length > 0;
+      if(hasData) countReal++; else countHandshake++;
+      var el = buildRow(row);
+      els.feedList.insertBefore(el, els.feedList.firstChild);
+      inserted = true;
+      (function(rowEl){
+        setTimeout(function(){ rowEl.classList.remove('row-new'); }, 2200);
+      })(el);
+    }
+    while(els.feedList.children.length > MAX_DOM_ROWS){
+      els.feedList.removeChild(els.feedList.lastChild);
+    }
+    if(inserted || els.feedList.children.length > 0) els.feedEmpty.hidden = true;
+    updateStats();
+  }
+
+  function updateStats(){
+    els.statSeen.textContent = seenCount.toLocaleString();
+    els.statReal.textContent = countReal.toLocaleString();
+    els.statHandshake.textContent = countHandshake.toLocaleString();
+  }
+
+  function tickClock(){
+    var nodes = els.feedList.querySelectorAll('.c-time');
+    for(var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+      var row = n.closest('.row');
+      if(row && row.dataset.iso) n.textContent = relTime(row.dataset.iso);
+    }
+  }
+
+  function setLive(state, text){
+    els.liveDot.className = 'live-dot ' + state;
+    els.liveText.textContent = text;
+  }
+
+  function poll(){
+    if(inFlight) return;
+    var key = getKey();
+    if(!key){ showGate(); return; }
+    inFlight = true;
+    fetch(API + '?limit=' + LIMIT, { headers: { 'X-Admin-Key': key } })
+      .then(function(res){
+        if(res.status === 401){
+          clearKey();
+          showGate('Key rejected — try again.');
+          throw new Error('unauthorized');
+        }
+        if(!res.ok) throw new Error('bad status ' + res.status);
+        return res.json();
+      })
+      .then(function(data){
+        var rows = Array.isArray(data.rows) ? data.rows : [];
+        render(rows);
+        els.connMsg.hidden = true;
+        setLive('on', 'Live');
+      })
+      .catch(function(err){
+        if(err && err.message === 'unauthorized') return;
+        els.connMsg.hidden = false;
+        setLive('warn', 'Reconnecting…');
+      })
+      .then(function(){ inFlight = false; });
+  }
+
+  function startPolling(immediate){
+    stopPolling();
+    if(immediate) poll();
+    pollTimer = setInterval(poll, POLL_MS);
+  }
+  function stopPolling(){
+    if(pollTimer) clearInterval(pollTimer);
+    pollTimer = null;
+  }
+
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){
+      stopPolling();
+      if(!els.gate.classList.contains('open')) setLive('paused', 'Paused');
+    } else if(getKey() && !els.gate.classList.contains('open')){
+      startPolling(true);
+    }
+  });
+
+  setInterval(tickClock, 1000);
+
+  var initialKey = getKey();
+  if(initialKey){
+    hideGate();
+    startPolling(true);
+  } else {
+    showGate();
+  }
+})();
+</script>
+</body>
+</html>
