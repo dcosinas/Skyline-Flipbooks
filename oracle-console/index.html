@@ -21,6 +21,7 @@
     --brown:#6b3a2a;
     --green:#2f6b3a;
     --neutral-dot:#aba89e;
+    --slate:#3d5f73;
     --focus:#841617;
   }
   *{box-sizing:border-box;}
@@ -132,6 +133,7 @@
   .st-warn{background:var(--brown);}
   .st-crit{background:var(--crimson);}
   .st-neutral{background:var(--neutral-dot);}
+  .st-future{background:var(--slate);}
   .c-data.has-data{color:var(--ink); font-weight:500;}
   .c-data-text{display:flex; flex-direction:column; gap:0; line-height:1.25; min-width:0;}
   .c-data-text strong{font-weight:inherit; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
@@ -240,6 +242,7 @@
         <div class="legend-row"><i class="dot st-good"></i><span><strong>200</strong> ok / <strong>202</strong> accepted — request succeeded (202 means a handshake was acknowledged, no data required)</span></div>
         <div class="legend-row"><i class="dot st-warn"></i><span><strong>429</strong> rate limited — too many requests, temporarily throttled</span></div>
         <div class="legend-row"><i class="dot st-crit"></i><span><strong>404</strong> not found / <strong>500</strong> server error — request failed</span></div>
+        <div class="legend-row"><i class="dot st-future"></i><span><strong>402</strong> payment required — reserved for future metered access, not live yet</span></div>
         <div class="legend-row"><i class="dot st-neutral"></i><span>other/unrecognized status code</span></div>
       </div>
       <div class="legend-group">
