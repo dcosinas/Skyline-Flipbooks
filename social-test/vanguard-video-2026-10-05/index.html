@@ -257,6 +257,9 @@
     min-height: 1.1em;
   }
 
+  .cta-row { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .cta-row .cta { display: block; margin-top: 0; text-align: center; }
+
   .watermark {
     text-align: center;
     padding: 20px 0 28px;
@@ -334,7 +337,10 @@
     <p class="kicker">Today's Briefing, On Camera</p>
     <h2>Skyline Roofing's Vanguard — Daily Advantage</h2>
     <p>Every day, Skyline Roofing turns industry news into a real advantage for the people we work with. This short video brief pulls the highlights from today's Vanguard newspaper — straight from the team, straight to the point.</p>
-    <a class="cta" href="https://flipbooks.skylineroofllc.com/newspaper/realtors/">Read Today's Full Edition</a>
+    <div class="cta-row">
+      <a class="cta" href="https://flipbooks.skylineroofllc.com/newspaper/realtors/">Read Today's Realtors Edition</a>
+      <a class="cta" href="https://flipbooks.skylineroofllc.com/newspaper/insurance-agents/">Read Today's Insurance Agents Edition</a>
+    </div>
   </div>
 
   <div class="watermark">
