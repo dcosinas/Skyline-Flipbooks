@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>Skyline Lead Intake</title>
+<style>
+:root{--crimson:#841617;--bg:#F5F5F5;--card:#fff;--text:#1a1a1a;--muted:#555;--line:#cfcfcf;--err:#b00020;--ok:#1b6e3a;--field:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--card:#1d1d1d;--text:#f0f0f0;--muted:#aaa;--line:#444;--err:#ff7a8a;--ok:#6fd08c;--field:#262626;--crimson:#c0353a}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:12px 16px 24px}
+header{text-align:center;padding:8px 0 4px}
+.logo{background:#fff;border-radius:10px;padding:6px 10px;display:inline-block}
+.logo img{display:block;height:64px;width:auto;max-width:100%}
+h1{font-family:Georgia,serif;font-style:italic;font-size:24px;margin:10px 0 2px;color:var(--crimson)}
+.sub{color:var(--muted);margin:0 0 12px;font-size:15px}
+fieldset{border:0;margin:0 0 14px;padding:14px;background:var(--card);border-radius:12px;border:1px solid var(--line)}
+legend{font-family:Georgia,serif;font-weight:bold;color:var(--crimson);padding:0 6px;font-size:15px;letter-spacing:.04em}
+.f{margin-bottom:14px}.f:last-child{margin-bottom:0}
+label,.lbl{display:block;font-weight:600;margin-bottom:4px;font-size:15px}
+.req{color:var(--crimson)}
+.opt{color:var(--muted);font-weight:400;font-size:13px}
+input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;min-height:48px;padding:12px;font:inherit;font-size:16px;color:var(--text);background:var(--field);border:1.5px solid var(--line);border-radius:10px;-webkit-appearance:none;appearance:none}
+textarea{min-height:96px;resize:vertical}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 14px) 21px;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
+input:focus,select:focus,textarea:focus{outline:3px solid color-mix(in srgb,var(--crimson) 40%,transparent);border-color:var(--crimson)}
+.row{display:grid;grid-template-columns:1fr 110px;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 110px;gap:10px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{margin:0;font-weight:600}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg.c3{grid-template-columns:1fr 1fr 1fr}.seg span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;text-align:center;padding:8px;border:1.5px solid var(--line);border-radius:10px;background:var(--field);line-height:1.2}
+.seg input:checked+span{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.seg input:focus-visible+span{outline:3px solid color-mix(in srgb,var(--crimson) 40%,transparent)}
+.err{display:none;color:var(--err);font-size:14px;margin-top:4px}
+.bad .err{display:block}.bad input,.bad select,.bad textarea{border-color:var(--err)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bar{position:sticky;bottom:0;z-index:5;background:var(--bg);padding:10px 0 calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line)}
+button{font:inherit;font-weight:700;font-size:18px;width:100%;min-height:56px;border:0;border-radius:12px;background:var(--crimson);color:#fff;cursor:pointer}
+button:disabled{opacity:.6}
+button.sec{background:transparent;color:var(--crimson);border:2px solid var(--crimson);margin-top:10px}
+.banner{display:none;margin:0 0 10px;padding:12px;border-radius:10px;background:color-mix(in srgb,var(--err) 15%,var(--card));border:1.5px solid var(--err);font-size:15px}
+.show{display:block}
+#done{display:none;text-align:center;padding:40px 8px}
+#done h2{font-family:Georgia,serif;color:var(--ok);font-size:28px;margin:0 0 8px}
+.done #form{display:none}.done #done{display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="logo"><img src="https://flipbooks.skylineroofllc.com/assets/skyline-logo.jpg" alt="Skyline Roofing"></div>
+ <h1>New Lead</h1>
+ <p class="sub">Fill in what you know. Name, phone, address and damage are required.</p>
+</header>
+
+<div id="done" role="status" aria-live="polite">
+ <h2>Got it — Larry has it</h2>
+ <p class="sub">Lead submitted. Thanks, Audie.</p>
+ <button type="button" id="again">Add another lead</button>
+</div>
+
+<form id="form" novalidate autocomplete="on">
+ <div id="banner" class="banner" role="alert"></div>
+
+ <fieldset><legend>01 CUSTOMER</legend>
+  <div class="f" data-f="name"><label for="name">Customer name <span class="req">*</span></label>
+   <input type="text" id="name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next"><div class="err">Please enter the customer's name.</div></div>
+  <div class="f" data-f="phone"><label for="phone">Phone <span class="req">*</span></label>
+   <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="405-555-1234"><div class="err">Enter a 10-digit phone number.</div></div>
+  <div class="f" data-f="email"><label for="email">Email <span class="opt">(optional)</span></label>
+   <input type="email" id="email" name="email" autocomplete="email" autocapitalize="none" inputmode="email"><div class="err">That email doesn't look right.</div></div>
+ </fieldset>
+
+ <fieldset><legend>02 PROPERTY</legend>
+  <div class="f" data-f="street"><label for="street">Street address <span class="req">*</span></label>
+   <input type="text" id="street" name="street" autocomplete="address-line1" autocapitalize="words"><div class="err">Please enter the street address.</div></div>
+  <div class="row">
+   <div class="f" data-f="city"><label for="city">City <span class="req">*</span></label>
+    <input type="text" id="city" name="city" autocomplete="address-level2" autocapitalize="words"><div class="err">Enter the city.</div></div>
+   <div class="f" data-f="zip"><label for="zip">ZIP <span class="req">*</span></label>
+    <input type="text" id="zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10"><div class="err">5-digit ZIP.</div></div>
+  </div>
+ </fieldset>
+
+ <fieldset><legend>03 THE DAMAGE</legend>
+  <div class="f" data-f="desc"><label for="desc">What's going on? <span class="req">*</span></label>
+   <textarea id="desc" name="desc" placeholder="Leak in the hallway, missing shingles after the storm, etc."></textarea><div class="err">Tell us briefly what's going on.</div></div>
+  <div class="f"><div class="lbl">Urgency</div>
+   <div class="seg" id="urg">
+    <label><input type="radio" name="urgency" value="Standard" checked><span>Standard<br><small>cosmetic / no leak</small></span></label>
+    <label><input type="radio" name="urgency" value="URGENT"><span>Urgent<br><small>active leak / exposed decking</small></span></label>
+   </div></div>
+  <div class="f"><label for="loss">Date of loss or storm <span class="opt">(if known)</span></label>
+   <input type="text" id="loss" name="loss" placeholder="e.g. 10/2 hail storm"></div>
+ </fieldset>
+
+ <fieldset><legend>04 INSURANCE &amp; CONTACT</legend>
+  <div class="f"><label for="ins">Insurance claim status</label>
+   <select id="ins" name="ins"><option>Unsure</option><option>Not filed</option><option>Filed</option><option>Adjuster scheduled</option><option>Approved</option><option>Denied</option></select></div>
+  <div class="f"><label for="dm">Decision-maker(s)</label>
+   <input type="text" id="dm" name="dm" placeholder="Who decides? (e.g. owner + spouse)"></div>
+  <div class="f"><div class="lbl">Will all decision-makers be present?</div>
+   <div class="seg c3">
+    <label><input type="radio" name="allpresent" value="Yes"><span>Yes</span></label>
+    <label><input type="radio" name="allpresent" value="No"><span>No</span></label>
+    <label><input type="radio" name="allpresent" value="Unsure" checked><span>Unsure</span></label>
+   </div></div>
+  <div class="f"><label for="best">Best time to reach</label>
+   <input type="text" id="best" name="best" placeholder="e.g. weekdays after 5"></div>
+ </fieldset>
+
+ <fieldset><legend>05 NOTES</legend>
+  <div class="f"><label for="src">Lead source / notes</label>
+   <input type="text" id="src" name="src" value="Audie Burns"></div>
+  <div class="f"><label for="more">Anything else <span class="opt">(optional)</span></label>
+   <textarea id="more" name="more"></textarea></div>
+ </fieldset>
+
+ <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+ <div class="bar"><button type="submit" id="go">Submit lead</button></div>
+</form>
+</div>
+
+<script>
+(function(){
+"use strict";
+var WORKER_URL = "https://lead-intake.skyline-roofing.workers.dev/submit"; // <-- the one constant to change
+var DRAFT_KEY = "skyline_lead_draft_v1";
+var $ = function(id){return document.getElementById(id);};
+var form=$("form"), go=$("go"), banner=$("banner"), busy=false;
+var TEXT=["name","phone","email","street","city","zip","desc","loss","ins","dm","best","src","more"];
+var RADIO=["urgency","allpresent"];
+
+function store(op,v){try{if(op==="get")return localStorage.getItem(DRAFT_KEY);if(op==="set")localStorage.setItem(DRAFT_KEY,v);else localStorage.removeItem(DRAFT_KEY);}catch(e){}return null;}
+function collect(){var d={};TEXT.forEach(function(k){d[k]=$(k).value;});RADIO.forEach(function(k){var r=form.querySelector('input[name="'+k+'"]:checked');d[k]=r?r.value:"";});return d;}
+function fill(d){TEXT.forEach(function(k){if(d[k]!=null)$(k).value=d[k];});RADIO.forEach(function(k){var r=form.querySelector('input[name="'+k+'"][value="'+d[k]+'"]');if(r)r.checked=true;});}
+function saveDraft(){store("set",JSON.stringify(collect()));}
+function reset(){form.reset();$("src").value="Audie Burns";}
+try{var s=store("get");if(s)fill(JSON.parse(s));}catch(e){}
+form.addEventListener("input",saveDraft);form.addEventListener("change",saveDraft);
+
+function digits(s){return s.replace(/\D/g,"");}
+var rules={
+ name:function(v){return v.trim().length>1;},
+ phone:function(v){var d=digits(v);if(d.length===11&&d[0]==="1")d=d.slice(1);return d.length===10;},
+ email:function(v){return !v.trim()||/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v.trim());},
+ street:function(v){return v.trim().length>3;},
+ city:function(v){return v.trim().length>1;},
+ zip:function(v){return /^\d{5}(-?\d{4})?$/.test(v.trim());},
+ desc:function(v){return v.trim().length>3;}
+};
+function check(k,show){var ok=rules[k]($(k).value);var w=document.querySelector('[data-f="'+k+'"]');if(w)w.classList.toggle("bad",!ok&&show!==false);return ok;}
+Object.keys(rules).forEach(function(k){$(k).addEventListener("blur",function(){if($(k).value||k!=="email")check(k);});$(k).addEventListener("input",function(){var w=document.querySelector('[data-f="'+k+'"]');if(w.classList.contains("bad"))check(k);});});
+
+function fmtPhone(v){var d=digits(v);if(d.length===11&&d[0]==="1")d=d.slice(1);return d.length===10?d.slice(0,3)+"-"+d.slice(3,6)+"-"+d.slice(6):v.trim();}
+function show(msg){banner.textContent=msg;banner.classList.add("show");banner.scrollIntoView({block:"nearest",behavior:"smooth"});}
+
+form.addEventListener("submit",function(e){
+ e.preventDefault();if(busy)return;
+ banner.classList.remove("show");
+ var first=null;Object.keys(rules).forEach(function(k){if(!check(k)&&!first)first=k;});
+ if(first){$(first).focus();$(first).scrollIntoView({block:"center",behavior:"smooth"});return;}
+ var d=collect();
+ var fields={
+  "Customer name":d.name.trim(),"Phone":fmtPhone(d.phone),"Email":d.email.trim(),
+  "Property address":d.street.trim()+", "+d.city.trim()+", OK "+d.zip.trim(),
+  "Street":d.street.trim(),"City":d.city.trim(),"ZIP":d.zip.trim(),
+  "Damage description":d.desc.trim(),"Urgency":d.urgency,
+  "Insurance claim status":d.ins,"Decision-maker(s)":d.dm.trim(),
+  "All decision-makers present":d.allpresent,"Best time to reach":d.best.trim(),
+  "Date of loss / storm":d.loss.trim(),"Lead source / notes":d.src.trim(),"Anything else":d.more.trim()
+ };
+ busy=true;go.disabled=true;go.textContent="Sending...";
+ var ctl=new AbortController(),t=setTimeout(function(){ctl.abort();},20000);
+ fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},signal:ctl.signal,
+  body:JSON.stringify({fields:fields,submitted_by:"Audie Burns",website:$("website").value})})
+ .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r;})
+ .then(function(){store("del");reset();document.body.classList.add("done");window.scrollTo(0,0);})
+ .catch(function(){saveDraft();show("That didn't go through. Nothing you typed was lost - check your signal and tap Submit again.");})
+ .then(function(){clearTimeout(t);busy=false;go.disabled=false;go.textContent="Submit lead";});
+});
+$("again").addEventListener("click",function(){document.body.classList.remove("done");banner.classList.remove("show");window.scrollTo(0,0);$("name").focus();});
+})();
+</script>
+</body>
+</html>
