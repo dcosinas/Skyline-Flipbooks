@@ -142,7 +142,16 @@ function collect(){var d={};TEXT.forEach(function(k){d[k]=$(k).value;});RADIO.fo
 function fill(d){TEXT.forEach(function(k){if(d[k]!=null)$(k).value=d[k];});RADIO.forEach(function(k){var r=form.querySelector('input[name="'+k+'"][value="'+d[k]+'"]');if(r)r.checked=true;});}
 function saveDraft(){store("set",JSON.stringify(collect()));}
 function reset(){form.reset();$("src").value="Audie Burns";}
-try{var s=store("get");if(s)fill(JSON.parse(s));}catch(e){}
+var hasQ=/[?&](street|city|zip|name|phone|email|damage|date_of_loss|notes|urgency)=/.test(location.search);
+try{var s=hasQ?null:store("get");if(s)fill(JSON.parse(s));}catch(e){}
+// URL query params win over the saved draft (set via .value only, trimmed, capped)
+(function(){try{
+ var q=new URLSearchParams(location.search),map={street:"street",city:"city",zip:"zip",name:"name",phone:"phone",email:"email",damage:"desc",date_of_loss:"loss",notes:"src"},hit=false;
+ Object.keys(map).forEach(function(k){var v=q.get(k);if(v==null)return;v=v.replace(/[\u0000-\u001f]/g," ").trim().slice(0,k==="damage"?1000:200);if(v){$(map[k]).value=v;hit=true;}});
+ var u=(q.get("urgency")||"").toLowerCase();
+ if(u==="urgent"||u==="standard"){var r=form.querySelector('input[name="urgency"][value="'+(u==="urgent"?"URGENT":"Standard")+'"]');if(r){r.checked=true;hit=true;}}
+ if(hit)saveDraft();
+}catch(e){}})();
 form.addEventListener("input",saveDraft);form.addEventListener("change",saveDraft);
 
 function digits(s){return s.replace(/\D/g,"");}
