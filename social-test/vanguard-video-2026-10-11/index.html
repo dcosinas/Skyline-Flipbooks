@@ -294,6 +294,76 @@
 
   .podcast-listen .sep { margin: 0 8px; color: var(--charcoal); opacity: 0.5; }
 
+
+  .podcast-box {
+    background: var(--paper-tint);
+    border-top: 3px solid var(--crimson);
+    padding: 18px 22px 20px;
+  }
+
+  .podcast-kicker {
+    margin: 0 0 4px;
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--crimson);
+  }
+
+  .podcast-title {
+    margin: 0 0 12px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--black);
+    line-height: 1.35;
+  }
+
+  audio.podcast-player {
+    width: 100%;
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .podcast-download {
+    display: inline-block;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--crimson);
+    text-decoration: none;
+  }
+
+  .podcast-download:hover { color: var(--crimson-hover); text-decoration: underline; }
+
+  .podcast-listen {
+    margin: 0 0 10px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.8rem;
+    color: var(--charcoal);
+  }
+
+  .podcast-listen a {
+    color: var(--crimson);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .podcast-listen a:hover { color: var(--crimson-hover); text-decoration: underline; }
+
+  .podcast-listen .sep { margin: 0 8px; color: var(--charcoal); opacity: 0.5; }
+
+  .podcast-expired {
+    text-align: center;
+  }
+
+  .podcast-expired p {
+    margin: 0;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
@@ -316,6 +386,17 @@
     </div>
   </div>
 
+
+  <div class="podcast-box">
+    <p class="podcast-kicker">Want to listen? <strong>20-minute commute podcast</strong></p>
+    <p class="podcast-title">Skyline Vanguard — The Commute Briefing, with Tawny &amp; Paul</p>
+    <audio class="podcast-player" controls preload="none">
+      <source src="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-11.mp3" type="audio/mpeg">
+      Your browser does not support the audio element. <a href="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-11.mp3">Download the MP3</a>.
+    </audio>
+    <p class="podcast-listen"><a href="https://open.spotify.com/show/7hPuCHSL3SVASyHGolhhgE" target="_blank" rel="noopener">Listen on Spotify</a><span class="sep">|</span><a href="https://podcasts.apple.com/us/podcast/id6817506428" target="_blank" rel="noopener">Listen on Apple Podcasts</a></p>
+    <a class="podcast-download" href="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-11.mp3" download="vanguard-podcast-2026-10-11.mp3">Download MP3</a>
+  </div>
 
   <div class="save-actions">
     <button id="saveVideoBtn" class="save-btn" type="button" style="display:none;">Save Video</button>
