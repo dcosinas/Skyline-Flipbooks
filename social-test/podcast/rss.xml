@@ -25,7 +25,25 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Mon, 26 Oct 2026 05:44:11 -0500</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 21:30:49 -0500</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Oct 27, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-27/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-27/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-27.mp3" length="6974301" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-27.mp3</guid>
+    <pubDate>Mon, 26 Oct 2026 21:00:00 -0500</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Oct 27, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-27/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:19:22</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Oct 26, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
@@ -563,24 +581,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-27/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:15:43</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Sep 26, 2026</title>
-    <description>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. Category Two hurricane bearing down on Hawaii as forecasters warn of potential historic rainfall and catastrophic flash flooding. Meanwhile, homeowners insurance in Florida is actually getting cheaper — approval notices came through just this week for four carriers.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-26/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-26/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-26.mp3" length="5704797" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-09-26.mp3</guid>
-    <pubDate>Fri, 25 Sep 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Sep 26, 2026</itunes:title>
-    <itunes:summary>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. Category Two hurricane bearing down on Hawaii as forecasters warn of potential historic rainfall and catastrophic flash flooding. Meanwhile, homeowners insurance in Florida is actually getting cheaper — approval notices came through just this week for four carriers.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-09-26/</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:15:51</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
