@@ -25,20 +25,38 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Sun, 01 Nov 2026 21:27:24 -0600</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 21:27:11 -0600</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Nov 3, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-03/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-03/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-03.mp3" length="6808701" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-03.mp3</guid>
+    <pubDate>Mon, 02 Nov 2026 21:00:00 -0600</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Nov 3, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-03/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:18:55</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Nov 2, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
 
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-02/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-02/</link>
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-02/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-02/</link>
     <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-02.mp3" length="6748941" type="audio/mpeg"/>
     <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-02.mp3</guid>
     <pubDate>Sun, 01 Nov 2026 21:00:00 -0600</pubDate>
     <itunes:title>Vanguard Commute Briefing — Nov 2, 2026</itunes:title>
     <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
 
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-02/</itunes:summary>
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-02/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:18:45</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
@@ -563,24 +581,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-04/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:20:05</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Oct 3, 2026</title>
-    <description>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. September nonfarm payrolls missed the forecast by more than sixty thousand jobs. Property and casualty insurers are getting upgraded, not downgraded — and it's changing the market. Reverse mortgage originations have stalled despite being safer than ever.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-03/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-03/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-03.mp3" length="6748797" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-03.mp3</guid>
-    <pubDate>Fri, 02 Oct 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Oct 3, 2026</itunes:title>
-    <itunes:summary>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. September nonfarm payrolls missed the forecast by more than sixty thousand jobs. Property and casualty insurers are getting upgraded, not downgraded — and it's changing the market. Reverse mortgage originations have stalled despite being safer than ever.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-03/</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:18:45</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
