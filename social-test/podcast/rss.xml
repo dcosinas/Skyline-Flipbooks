@@ -25,20 +25,38 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Tue, 03 Nov 2026 21:31:53 -0600</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 21:32:24 -0600</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Nov 5, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-05/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-05/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-05.mp3" length="7403565" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-05.mp3</guid>
+    <pubDate>Wed, 04 Nov 2026 21:00:00 -0600</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Nov 5, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-05/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:20:34</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Nov 4, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
 
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-04/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-04/</link>
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-04/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-04/</link>
     <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-04.mp3" length="6991725" type="audio/mpeg"/>
     <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-04.mp3</guid>
     <pubDate>Tue, 03 Nov 2026 21:00:00 -0600</pubDate>
     <itunes:title>Vanguard Commute Briefing — Nov 4, 2026</itunes:title>
     <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
 
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-04/</itunes:summary>
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-04/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:19:25</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
@@ -563,24 +581,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-06/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:26:52</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Oct 5, 2026</title>
-    <description>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. Severe storms are sweeping Texas right now, bringing serious flood risk from Houston to Dallas. Sellers are cutting asking prices at record highs — the most we've seen in years for this time of the season.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-05/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-05/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-05.mp3" length="7121469" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-05.mp3</guid>
-    <pubDate>Sun, 04 Oct 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Oct 5, 2026</itunes:title>
-    <itunes:summary>Welcome to the Skyline Vanguard Daily Briefing — the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. Severe storms are sweeping Texas right now, bringing serious flood risk from Houston to Dallas. Sellers are cutting asking prices at record highs — the most we've seen in years for this time of the season.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-05/</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:19:47</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
