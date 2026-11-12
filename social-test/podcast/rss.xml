@@ -25,7 +25,25 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Tue, 10 Nov 2026 21:34:38 -0600</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 21:40:45 -0600</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Nov 12, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-12/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-12/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-12.mp3" length="7217229" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-12.mp3</guid>
+    <pubDate>Wed, 11 Nov 2026 21:00:00 -0600</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Nov 12, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-12/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:20:03</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Nov 11, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
@@ -563,24 +581,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-13/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:19:34</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Oct 12, 2026</title>
-    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-12/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-12/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-12.mp3" length="7117293" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-12.mp3</guid>
-    <pubDate>Sun, 11 Oct 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Oct 12, 2026</itunes:title>
-    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-12/</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:19:46</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
