@@ -25,7 +25,7 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Tue, 17 Nov 2026 21:34:16 -0600</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 05:59:44 -0600</lastBuildDate>
   <item>
     <title>Vanguard Commute Briefing — Nov 18, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
@@ -582,6 +582,20 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:20:03</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+    <title>Welcome to Skyline Vanguard: The Commute Briefing</title>
+    <description>Meet your hosts, Tawny and Paul. Skyline Vanguard is a daily commute-length briefing for Oklahoma realtors and insurance agents, covering the roofing, insurance, and housing news that matters to your business.</description>
+    <link>https://flipbooks.skylineroofllc.com/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-trailer.mp3" length="172893" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-trailer.mp3</guid>
+    <pubDate>Mon, 01 Sep 2025 12:00:00 -0500</pubDate>
+    <itunes:title>Welcome to Skyline Vanguard: The Commute Briefing</itunes:title>
+    <itunes:summary>Meet your hosts, Tawny and Paul. Skyline Vanguard is a daily commute-length briefing for Oklahoma realtors and insurance agents, covering the roofing, insurance, and housing news that matters to your business.</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:00:29</itunes:duration>
+    <itunes:episodeType>trailer</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
 </channel>
