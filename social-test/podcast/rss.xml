@@ -25,7 +25,25 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Mon, 16 Nov 2026 21:31:41 -0600</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 21:34:16 -0600</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Nov 18, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-18/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-18/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-18.mp3" length="7430349" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-18.mp3</guid>
+    <pubDate>Tue, 17 Nov 2026 21:00:00 -0600</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Nov 18, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-18/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:20:38</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Nov 17, 2026</title>
     <description>Welcome to the Skyline Vanguard Daily Briefing, the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. Our lead is a Cotality report that puts rising weather risk, insurance nonrenewals, and softer home prices in the same frame. Second, the mortgage insurance fund at the Federal Housing Administration, and a debate over whether premiums should come down.
@@ -563,24 +581,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-19/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:20:03</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Oct 18, 2026</title>
-    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-18/</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-18/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-18.mp3" length="7276413" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-18.mp3</guid>
-    <pubDate>Sat, 17 Oct 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Oct 18, 2026</itunes:title>
-    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-18/</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:20:13</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
