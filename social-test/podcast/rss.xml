@@ -25,7 +25,25 @@
   <podcast:guid>e5eb36b7-a63b-5c73-ac9e-3042833b0f72</podcast:guid>
   <podcast:locked>no</podcast:locked>
   <generator>vanguard_podcast_publish.py</generator>
-  <lastBuildDate>Sun, 22 Nov 2026 21:24:35 -0600</lastBuildDate>
+  <lastBuildDate>Mon, 23 Nov 2026 21:24:45 -0600</lastBuildDate>
+  <item>
+    <title>Vanguard Commute Briefing — Nov 24, 2026</title>
+    <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul. Get the Vanguard free every morning: https://skylineroofllc.com/vanguard
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-24/</description>
+    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-24/</link>
+    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-24.mp3" length="7084461" type="audio/mpeg"/>
+    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-11-24.mp3</guid>
+    <pubDate>Mon, 23 Nov 2026 21:00:00 -0600</pubDate>
+    <itunes:title>Vanguard Commute Briefing — Nov 24, 2026</itunes:title>
+    <itunes:summary>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul. Get the Vanguard free every morning: https://skylineroofllc.com/vanguard
+
+Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-11-24/</itunes:summary>
+    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
+    <itunes:duration>0:19:41</itunes:duration>
+    <itunes:episodeType>full</itunes:episodeType>
+    <itunes:explicit>false</itunes:explicit>
+  </item>
   <item>
     <title>Vanguard Commute Briefing — Nov 23, 2026</title>
     <description>The daily Commute Briefing from Skyline Vanguard — real-estate and insurance industry news for professionals, hosted by Tawny &amp; Paul. Get the Vanguard free every morning: https://skylineroofllc.com/vanguard
@@ -567,28 +585,6 @@ Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-20
 Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-25/</itunes:summary>
     <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
     <itunes:duration>0:20:27</itunes:duration>
-    <itunes:episodeType>full</itunes:episodeType>
-    <itunes:explicit>false</itunes:explicit>
-  </item>
-  <item>
-    <title>Vanguard Commute Briefing — Oct 24, 2026</title>
-    <description>Welcome to the Skyline Vanguard Daily Briefing, the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. It's Saturday, so take your time, but these stories aren't waiting for the weekend. First, the Treasury Department has proposed a rule that would bar large institutional investors from buying single-family homes, starting January seventh, twenty twenty-seven.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-24/
-
-Get the Vanguard free every morning: https://skylineroofllc.com/vanguard</description>
-    <link>https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-24/</link>
-    <enclosure url="https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-24.mp3" length="7225005" type="audio/mpeg"/>
-    <guid isPermaLink="false">https://flipbooks.skylineroofllc.com/social-test/vanguard-podcast-2026-10-24.mp3</guid>
-    <pubDate>Fri, 23 Oct 2026 21:00:00 -0500</pubDate>
-    <itunes:title>Vanguard Commute Briefing — Oct 24, 2026</itunes:title>
-    <itunes:summary>Welcome to the Skyline Vanguard Daily Briefing, the twenty-minute commute podcast for real estate and insurance professionals. I'm Tawny. And I'm Paul. Good morning. Here's what matters today. It's Saturday, so take your time, but these stories aren't waiting for the weekend. First, the Treasury Department has proposed a rule that would bar large institutional investors from buying single-family homes, starting January seventh, twenty twenty-seven.
-
-Full edition: https://flipbooks.skylineroofllc.com/social-test/vanguard-video-2026-10-24/
-
-Get the Vanguard free every morning: https://skylineroofllc.com/vanguard</itunes:summary>
-    <itunes:image href="https://flipbooks.skylineroofllc.com/social-test/podcast/cover.jpg"/>
-    <itunes:duration>0:20:04</itunes:duration>
     <itunes:episodeType>full</itunes:episodeType>
     <itunes:explicit>false</itunes:explicit>
   </item>
